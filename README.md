@@ -84,7 +84,7 @@ we were given 3 button in our UI
 Face Recognition (MTCNN + Insight)
 
 
-* Face Identification
+>  Face Identification
 
 Using MTCNN:https://github.com/ipazc/mtcnn it trained on  mega face data set
 
@@ -112,7 +112,7 @@ we are detecting faces
       }]
 
 
-* Face Detection 
+>  Face Detection 
 
 From mxnet we are taking the implementation  insightface(Face Analysis Project on PyTorch and MXNet) from ArcFace Paper  https://github.com/deepinsight/insightface
 
