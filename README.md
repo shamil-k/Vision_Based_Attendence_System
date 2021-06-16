@@ -9,7 +9,7 @@ Implementation:
 1 - Face Recognition (MTCNN + Insight)
 
 
-* Face Recognition /Identification/Verification
+* Face Identification
 
 Using MTCNN:https://github.com/ipazc/mtcnn
 we are detecting 
@@ -57,5 +57,22 @@ function and contribute to the cross entropy loss
 2 - app.py
 
 UI user interface with  tk-inter  
+
+we were given 3 button in our UI
+
+* Take Image
+ > By clicking the take image button calling the function CollectImageForRegistration() > CollectimagesFromCamera()
+ > Here It will collect frame by frame  default 50 images. It only use when ever the new user is coming or directly go with Predict image
+ > Creating a folder for new user
+ > giving the images name as micro second
+ > Get all faces of current frame using Insightface
+ > Giving the condition to Get only biggest faces
+ > Creating the bounding box for the face
+ > Get each of the 3 frames Detecting the landmark of the faces using MTCNN
+ > Resizing the Image size as 112,112
+ > Saving the images
+ > Finally after taking the images of face "Image Captured"
+* Train Image
+* Predict Image
 
 
