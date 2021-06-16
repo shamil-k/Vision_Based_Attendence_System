@@ -6,7 +6,82 @@ Face Recognition Based Attendence System Using diffrent fearures
 Implementation:
 
 
-1 - Face Recognition (MTCNN + Insight)
+
+app.py
+
+we were given 3 button in our UI
+
+
+
+* Take Image
+
+
+     > By clicking the take image button calling the function CollectImageForRegistration() > CollectimagesFromCamera()
+     > 
+     > Here It will collect frame by frame  default 50 images. It only use when ever the new user is coming or directly go with Predict image
+     > Creating a folder for new user
+     > 
+     > giving the images name as micro second
+     > 
+     > Get all faces of current frame
+     > 
+     > Giving the condition to Get only biggest faces
+     > 
+     > Creating the bounding box for the face
+     > 
+     > Get each of the 3 frames Detecting the landmark of the faces using MTCNN
+     > 
+     > Resizing the Image size as 112,112
+     > 
+     > Saving the images in data set folder with names
+     > 
+     > Finally after taking the images of face "Image Captured"
+
+
+* Train Image
+
+     Data preprocessing:
+
+     > Generate Face Embedding class 
+     > quantifying faces - grab the path to the input image in our data set
+     > Initialize the face embedder  - Generating 128 co-ordinate from faces using insightface model
+     > Initialize list of extracted facial embedding and corresponding people names
+     > Saving embedding faces in a single  pickle file
+
+     To Train the model:
+
+     > Features : Embedding of the faces
+     > 
+     > Target. : classification of the users
+
+     Train keras model for Face Recognition:
+
+     > Encode the labels for the names(Target)
+     > 
+     > Build Softmax classifier
+     > 
+     > Training the model
+     > s
+     > Saving the face recognition model 
+
+
+* Predict Face
+
+    > We need to compare the predicted face to actual face for that following steps:
+
+    > Crop the faces from the frame
+    > 
+    > Convert into embedding
+    > 
+    > Comparing this embedding from  Orgianl embedding of the trained user faces
+    > 
+    > Checking this value is coming close to which cluster from Face Recognition model
+
+
+
+
+
+Face Recognition (MTCNN + Insight)
 
 
 * Face Identification
@@ -53,26 +128,4 @@ weight Wyi
 angle θyi
 . After that, we calculate cos(θyi + m) and multiply all logits by the feature scale s. The logits then go through the softmax
 function and contribute to the cross entropy loss
-
-2 - app.py
-
-UI user interface with  tk-inter  
-
-we were given 3 button in our UI
-
-* Take Image
- > By clicking the take image button calling the function CollectImageForRegistration() > CollectimagesFromCamera()
- > Here It will collect frame by frame  default 50 images. It only use when ever the new user is coming or directly go with Predict image
- > Creating a folder for new user
- > giving the images name as micro second
- > Get all faces of current frame using Insightface
- > Giving the condition to Get only biggest faces
- > Creating the bounding box for the face
- > Get each of the 3 frames Detecting the landmark of the faces using MTCNN
- > Resizing the Image size as 112,112
- > Saving the images
- > Finally after taking the images of face "Image Captured"
-* Train Image
-* Predict Image
-
 
